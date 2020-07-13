@@ -1,0 +1,22 @@
+
+.nav-row{
+    background-color: #166083;
+    *{
+        color: white;
+    }
+}
+#nav-row-title{
+    height: 20%;
+}
+#nav-row-items{
+    height: 80%;
+}
+
+@media only screen and (max-width: 991px) {
+    #nav-row-title{
+        height: 0%;
+    }
+    #nav-row-items{
+        height: 100%;
+    }
+}

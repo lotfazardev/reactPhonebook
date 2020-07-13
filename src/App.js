@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import './App.scss';
 import Container from 'react-bootstrap/Container';
-
+import LeftNav from './Components/Navbar/RightNavContainerCompo/RightNavContainer'
+import { Row, Col } from 'react-bootstrap';
 
 class App extends Component {
   render() {
     return (
-      <Container>
-      {/* App here */}
+      <Container fluid>
+        <Row id="main-row">
+          <Col className="no-padding col-1 col-lg-2">
+            <LeftNav
+              title="پنل کاربری"
+            />
+          </Col>
+        </Row>
       </Container>
     );
   }
