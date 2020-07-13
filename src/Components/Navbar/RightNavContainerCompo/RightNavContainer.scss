@@ -20,3 +20,9 @@
         height: 100%;
     }
 }
+
+@media only screen and (max-height: 400px) {
+    #nav-row-items{
+        overflow-y: scroll;
+    }
+}
