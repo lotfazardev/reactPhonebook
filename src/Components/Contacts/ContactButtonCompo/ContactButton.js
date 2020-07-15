@@ -1,6 +1,5 @@
 import React from 'react';
 import './ContactButton.scss';
-import RightLeftNavItems from '../../Navbar/RightNavItemCompo/RightNavItemCompo';
 import { Col } from 'react-bootstrap';
 
 function Contact(props){
