@@ -10,12 +10,12 @@ class App extends Component {
     return (
       <Container fluid>
         <Row id="main-row">
-          <Col className="no-padding col-1 col-lg-2">
+          <Col className="col-1 col-lg-2">
             <LeftNav
               title="پنل کاربری"
             />
           </Col>
-          <Col className="no-padding col-11 col-lg-10">
+          <Col className="col-11 col-lg-10">
             <ContactContainer/>
           </Col>
         </Row>

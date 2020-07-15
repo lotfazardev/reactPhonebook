@@ -9,10 +9,10 @@ function Contact(props){
     }
     return(
         <div className="ContactButton d-flex justify-content-center align-items-center " style={style}>
-            <Col className="col-3">
+            <Col className="col-12 col-md-3">
                 <span className={props.buttonIcon}></span>
             </Col>
-            <Col className="col-9">
+            <Col className="d-none d-md-flex col-md-9">
                 {props.buttonName}
             </Col>
         </div>
