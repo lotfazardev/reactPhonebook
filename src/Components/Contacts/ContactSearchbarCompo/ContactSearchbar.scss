@@ -1,0 +1,21 @@
+.searchbar-container {
+    height: 50px;
+    border-radius: 25px;
+    border: solid #166083 2px;
+}
+.filter-icon-div {
+    height: 100%;
+    text-align: center;
+    border-left: solid 2px #166083;
+    span {
+        color: #023e5a;
+    }
+}
+.searchbar-input {
+    width: 100%;
+    &:active , &:focus {
+        outline: 0px !important;
+        -webkit-appearance: none;
+        box-shadow: none !important;
+    }
+}
