@@ -17,7 +17,7 @@ function ContactTabel(props) {
             </thead>
             <tbody>
                 {
-                    props.users.map((currentValue, index) => {
+                    props.users && props.users.map((currentValue, index) => {
                         return (
                             <tr>
                                 <td>{index + 1}</td>
@@ -31,7 +31,9 @@ function ContactTabel(props) {
                                         itemButton="icon-pen" />
                                     <ContactItemButton itemButtonColor="#FF4141"
                                         itemButtonLabel="حذف"
-                                        itemButton="icon-user-minus" />
+                                        itemButton="icon-user-minus" 
+                                        handelClick={()=>props.handelDelete(index)}
+                                        />
                                 </td>
                             </tr>
                         );

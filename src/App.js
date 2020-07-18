@@ -22,6 +22,12 @@ function App() {
       { name: "احمد", family: "ذوقی", tel: "09030000000", note: "همون که خداوکیلی 100 تومن میده" }
     ]
   });
+  function handelDelete (itemIndex) {
+    setContactData({
+      tabelHeader : ContactData.tabelHeader,
+      tabelUsers: ContactData.tabelUsers.filter((item,index)=> index !== itemIndex)
+    });
+  }
   return (
     <Container fluid>
       <Row id="main-row">
@@ -31,7 +37,7 @@ function App() {
           />
         </Col>
         <Col className="col-11 col-lg-10">
-          <ContactContainer ContactData={ContactData} />
+          <ContactContainer handelDelete={handelDelete} ContactData={ContactData} />
         </Col>
       </Row>
     </Container>

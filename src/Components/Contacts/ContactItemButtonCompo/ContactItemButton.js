@@ -5,7 +5,7 @@ function ContactItemButton(props) {
         backgroundColor: props.itemButtonColor
     }
     return (
-        <div className="contact-item-btn align-items-center d-flex p-2 mr-1 ml-1"
+        <div onClick={props.handelClick} className="contact-item-btn align-items-center d-flex p-2 mr-1 ml-1"
             style={style}>
             <span className={props.itemButton}></span>
             <span className="pr-2">{props.itemButtonLabel}</span>
