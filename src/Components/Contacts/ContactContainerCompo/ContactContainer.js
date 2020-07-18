@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState} from 'react';
 import './ContactContainer.scss';
 import ContactButton from '../ContactButtonCompo/ContactButton'
 import { Col } from 'react-bootstrap';
@@ -6,7 +6,7 @@ import ContactSreachbar from '../ContactSearchbarCompo/ContactSearchbar';
 import ContactTabel from '../ContactTabelCompo/ContactTabel';
 
 function ContactContainer(props) {
-    const state = {
+    const [ContactData, setContactData] = useState({
         tabelHeader:{
             id:"#",
             name:"نام",
@@ -21,7 +21,7 @@ function ContactContainer(props) {
             {name:"سیمین",family:"شکوری",tel:"09020000000",note:"دندون شهید بهشتی"},
             {name:"احمد",family:"ذوقی",tel:"09030000000",note:"همون که خداوکیلی 100 تومن میده"}
         ]
-    }
+    });
     return (
         <>
             <Col className="no-padding col-12 d-flex justify-content-between align-items-center mt-1">
@@ -29,7 +29,7 @@ function ContactContainer(props) {
                 <ContactSreachbar/>
             </Col>
             <Col className="no-padding col-12 mt-3">
-                <ContactTabel header={state.tabelHeader} users={state.tabelUsers}/>
+                <ContactTabel header={ContactData.tabelHeader} users={ContactData.tabelUsers}/>
             </Col>
         </>
     );
