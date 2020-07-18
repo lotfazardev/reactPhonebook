@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import './ContactTabel.scss';
+import ContactItemButton from '../ContactItemButtonCompo/ContactItemButton';
 function ContactTabel(props) {
     return (
         <Table className="tabel" responsive>
@@ -24,7 +25,14 @@ function ContactTabel(props) {
                                 <td>{currentValue.family}</td>
                                 <td>{currentValue.tel}</td>
                                 <td>{currentValue.note}</td>
-                                <td>under construction</td>
+                                <td className="d-flex justify-content-center align-items-center">
+                                    <ContactItemButton itemButtonColor="#F8AE45"
+                                        itemButtonLabel="ویرایش"
+                                        itemButton="icon-pen" />
+                                    <ContactItemButton itemButtonColor="#FF4141"
+                                        itemButtonLabel="حذف"
+                                        itemButton="icon-user-minus" />
+                                </td>
                             </tr>
                         );
                     })
