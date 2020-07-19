@@ -7,15 +7,15 @@ import ContactContainer from './Components/Contacts/ContactContainerCompo/Contac
 import Swal from 'sweetalert2/src/sweetalert2.js';
 
 function App() {
+  const [ContactHeader, setContactHeader] = useState({
+    id: "#",
+    name: "نام",
+    family: "نام خانوادگی",
+    tel: "شماره تلفن",
+    note: "یادداشت ها",
+    accessibility: "دسترسی ها"
+  });
   const [ContactData, setContactData] = useState({
-    tabelHeader: {
-      id: "#",
-      name: "نام",
-      family: "نام خانوادگی",
-      tel: "شماره تلفن",
-      note: "یادداشت ها",
-      accessibility: "دسترسی ها"
-    },
     tabelUsers: []
   });
   function handelDelete(itemIndex) {
@@ -73,11 +73,11 @@ function App() {
         setContactData({
           tabelHeader: ContactData.tabelHeader,
           tabelUsers: [
-            ...ContactData.tabelUsers , {
-              name:result.value[0],
-              family:result.value[1],
-              tel:result.value[2],
-              note:result.value[3]
+            ...ContactData.tabelUsers, {
+              name: result.value[0],
+              family: result.value[1],
+              tel: result.value[2],
+              note: result.value[3]
             }
           ]
         });
@@ -105,6 +105,7 @@ function App() {
           <ContactContainer
             handelAdd={handelAdd}
             handelDelete={handelDelete}
+            HeaderData={ContactHeader}
             ContactData={ContactData} />
         </Col>
       </Row>
