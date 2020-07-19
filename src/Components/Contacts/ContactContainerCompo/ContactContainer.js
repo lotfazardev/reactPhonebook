@@ -9,11 +9,16 @@ function ContactContainer(props) {
     return (
         <>
             <Col className="no-padding col-12 d-flex justify-content-between align-items-center mt-1">
-                <ContactButton buttonName="افزودن مخاطب" buttonIcon="icon-user-plus" buttonColor="#5DA2D5" />
+                <ContactButton
+                    buttonName="افزودن مخاطب"
+                    buttonIcon="icon-user-plus"
+                    buttonColor="#5DA2D5"
+                    handelClick={props.handelAdd} />
                 <ContactSreachbar />
             </Col>
             <Col className="no-padding col-12 mt-3">
-                <ContactTabel header={props.ContactData.tabelHeader}
+                <ContactTabel
+                    header={props.ContactData.tabelHeader}
                     users={props.ContactData.tabelUsers}
                     handelDelete={props.handelDelete}
                 />

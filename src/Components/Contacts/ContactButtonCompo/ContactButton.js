@@ -7,7 +7,8 @@ function Contact(props){
         backgroundColor: props.buttonColor
     }
     return(
-        <div className="ContactButton d-flex justify-content-center align-items-center " style={style}>
+        <div className="ContactButton d-flex justify-content-center align-items-center " style={style}
+        onClick={props.handelClick}>
             <Col className="col-12 col-md-3">
                 <span className={props.buttonIcon}></span>
             </Col>

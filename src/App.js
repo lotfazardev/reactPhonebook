@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import LeftNav from './Components/Navbar/RightNavContainerCompo/RightNavContainer'
 import { Row, Col } from 'react-bootstrap';
 import ContactContainer from './Components/Contacts/ContactContainerCompo/ContactContainer';
+import Swal from 'sweetalert2/src/sweetalert2.js'
 
 function App() {
   const [ContactData, setContactData] = useState({
@@ -28,6 +29,9 @@ function App() {
       tabelUsers: ContactData.tabelUsers.filter((item,index)=> index !== itemIndex)
     });
   }
+  function handelAdd(){
+    Swal.fire('Any fool can use a computer')
+  }
   return (
     <Container fluid>
       <Row id="main-row">
@@ -37,7 +41,10 @@ function App() {
           />
         </Col>
         <Col className="col-11 col-lg-10">
-          <ContactContainer handelDelete={handelDelete} ContactData={ContactData} />
+          <ContactContainer 
+          handelAdd={handelAdd}
+          handelDelete={handelDelete}
+           ContactData={ContactData} />
         </Col>
       </Row>
     </Container>
