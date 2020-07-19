@@ -1,5 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
 @import '~@sweetalert2/theme-material-ui/material-ui.scss';
+
+.swal2-input.swal2-inputerror{
+  background: none;
+}
+
 @font-face {
   font-family: 'icomoon';
   src:  url('fonts/icomoon.eot?1wtnnx');

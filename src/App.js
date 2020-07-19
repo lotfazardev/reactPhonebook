@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import LeftNav from './Components/Navbar/RightNavContainerCompo/RightNavContainer'
 import { Row, Col } from 'react-bootstrap';
 import ContactContainer from './Components/Contacts/ContactContainerCompo/ContactContainer';
-import Swal from 'sweetalert2/src/sweetalert2.js'
+import Swal from 'sweetalert2/src/sweetalert2.js';
 
 function App() {
   const [ContactData, setContactData] = useState({
@@ -16,29 +16,83 @@ function App() {
       note: "یادداشت ها",
       accessibility: "دسترسی ها"
     },
-    tabelUsers: [
-      { name: "محمدحسین", family: "لطف آذر", tel: "09038701184", note: "دانشجوی کارشناسی کامپیوتر" },
-      { name: "نادر", family: "غفوری", tel: "09010000000", note: "ارشد عمران" },
-      { name: "سیمین", family: "شکوری", tel: "09020000000", note: "دندون شهید بهشتی" },
-      { name: "سیمین", family: "شکوری", tel: "09020000000", note: "دندون شهید بهشتی" },
-      { name: "سیمین", family: "شکوری", tel: "09020000000", note: "دندون شهید بهشتی" },
-      { name: "سیمین", family: "شکوری", tel: "09020000000", note: "دندون شهید بهشتی" },
-      { name: "سیمین", family: "شکوری", tel: "09020000000", note: "دندون شهید بهشتی" },
-      { name: "سیمین", family: "شکوری", tel: "09020000000", note: "دندون شهید بهشتی" },
-      { name: "سیمین", family: "شکوری", tel: "09020000000", note: "دندون شهید بهشتی" },
-      { name: "سیمین", family: "شکوری", tel: "09020000000", note: "دندون شهید بهشتی" },
-      { name: "احمد", family: "ذوقی", tel: "09030000000", note: "همون که خداوکیلی 100 تومن میده" }
-    ]
+    tabelUsers: []
   });
-  function handelDelete (itemIndex) {
+  function handelDelete(itemIndex) {
     setContactData({
-      tabelHeader : ContactData.tabelHeader,
-      tabelUsers: ContactData.tabelUsers.filter((item,index)=> index !== itemIndex)
+      tabelHeader: ContactData.tabelHeader,
+      tabelUsers: ContactData.tabelUsers.filter((item, index) => index !== itemIndex)
     });
   }
-  function handelAdd(){
-    Swal.fire('Any fool can use a computer')
+  function handelAdd() {
+    Swal.mixin({
+      input: 'text',
+      confirmButtonText: 'بعدی &rarr;',
+      showCancelButton: true,
+      cancelButtonText: 'انصراف',
+      progressSteps: ['۱', '۲', '۳', '۴']
+    }).queue([
+      {
+        title: 'نام',
+        text: 'نام مخاطب خود را وارد کنید !',
+        inputPlaceholder: "اینجا بنویسید",
+        inputValidator: (value) => {
+          if (!value) {
+            return 'پرکردن این ورودی الزامی است'
+          }
+        }
+      },
+      {
+        title: 'نام خانوادگی',
+        text: 'فامیلی مخاطب خود را وارد کنید !',
+        inputPlaceholder: "اینجا بنویسید",
+        inputValidator: (value) => {
+          if (!value) {
+            return 'پرکردن این ورودی الزامی است'
+          }
+        }
+      },
+      {
+        input: 'number',
+        title: 'شماره تلفن',
+        text: 'شماره تماس مخاطب خود را وارد کنید !',
+        inputPlaceholder: "اینجا بنویسید",
+        inputValidator: (value) => {
+          if (!value) {
+            return 'پرکردن این ورودی الزامی است'
+          }
+        }
+      },
+      {
+        title: 'یادداشت',
+        text: 'یادداشتی برای مخاطب خود بنویسید (اختیاری) !',
+        inputPlaceholder: "اینجا بنویسید"
+      },
+    ]).then((result) => {
+      if (result.value) {
+        setContactData({
+          tabelHeader: ContactData.tabelHeader,
+          tabelUsers: [
+            ...ContactData.tabelUsers , {
+              name:result.value[0],
+              family:result.value[1],
+              tel:result.value[2],
+              note:result.value[3]
+            }
+          ]
+        });
+        Swal.fire({
+          title: 'عملیات موفق',
+          icon: 'success',
+          html: `
+            مخاطب مورد نظر شما با موفقیت ثبت شد
+          `,
+          confirmButtonText: 'حله !'
+        })
+      }
+    })
   }
+
   return (
     <Container fluid>
       <Row id="main-row">
@@ -48,10 +102,10 @@ function App() {
           />
         </Col>
         <Col id="article" className="col-11 col-lg-10">
-          <ContactContainer 
-          handelAdd={handelAdd}
-          handelDelete={handelDelete}
-           ContactData={ContactData} />
+          <ContactContainer
+            handelAdd={handelAdd}
+            handelDelete={handelDelete}
+            ContactData={ContactData} />
         </Col>
       </Row>
     </Container>
