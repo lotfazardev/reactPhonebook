@@ -20,6 +20,13 @@ function App() {
       { name: "محمدحسین", family: "لطف آذر", tel: "09038701184", note: "دانشجوی کارشناسی کامپیوتر" },
       { name: "نادر", family: "غفوری", tel: "09010000000", note: "ارشد عمران" },
       { name: "سیمین", family: "شکوری", tel: "09020000000", note: "دندون شهید بهشتی" },
+      { name: "سیمین", family: "شکوری", tel: "09020000000", note: "دندون شهید بهشتی" },
+      { name: "سیمین", family: "شکوری", tel: "09020000000", note: "دندون شهید بهشتی" },
+      { name: "سیمین", family: "شکوری", tel: "09020000000", note: "دندون شهید بهشتی" },
+      { name: "سیمین", family: "شکوری", tel: "09020000000", note: "دندون شهید بهشتی" },
+      { name: "سیمین", family: "شکوری", tel: "09020000000", note: "دندون شهید بهشتی" },
+      { name: "سیمین", family: "شکوری", tel: "09020000000", note: "دندون شهید بهشتی" },
+      { name: "سیمین", family: "شکوری", tel: "09020000000", note: "دندون شهید بهشتی" },
       { name: "احمد", family: "ذوقی", tel: "09030000000", note: "همون که خداوکیلی 100 تومن میده" }
     ]
   });
@@ -35,12 +42,12 @@ function App() {
   return (
     <Container fluid>
       <Row id="main-row">
-        <Col className="col-1 col-lg-2">
+        <Col id="nav" className="col-1 col-lg-2">
           <LeftNav
             title="پنل کاربری"
           />
         </Col>
-        <Col className="col-11 col-lg-10">
+        <Col id="article" className="col-11 col-lg-10">
           <ContactContainer 
           handelAdd={handelAdd}
           handelDelete={handelDelete}
