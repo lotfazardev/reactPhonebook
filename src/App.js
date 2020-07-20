@@ -21,9 +21,7 @@ function App() {
   const [SearchText, setSearchText] = useState('');
 
   function handelDelete(itemIndex) {
-    setContactData({
-      tabelUsers: ContactData.filter((item, index) => index !== itemIndex)
-    });
+    setContactData( ContactData.filter((item, index) => index !== itemIndex));
   }
 
   function handelAdd() {
@@ -119,8 +117,7 @@ function App() {
             handelDelete={handelDelete}
             handelFilter={setSearchText}
             HeaderData={ContactHeader}
-            ContactData={ContactData.filter((element) => searchAlgorithm(element, SearchText)
-            )} />
+            ContactData={SearchText.length ? ContactData.filter((element) => searchAlgorithm(element, SearchText)) : ContactData} />
         </Col>
       </Row>
     </Container>
