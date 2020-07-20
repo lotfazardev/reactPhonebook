@@ -14,7 +14,9 @@ function ContactContainer(props) {
                     buttonIcon="icon-user-plus"
                     buttonColor="#5DA2D5"
                     handelClick={props.handelAdd} />
-                <ContactSreachbar />
+                <ContactSreachbar 
+                    handelFilter={props.handelFilter}
+                />
             </Col>
             <Col className="no-padding col-12 mt-3">
                 <ContactTabel

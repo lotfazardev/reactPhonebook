@@ -18,6 +18,8 @@ function App() {
 
   const [ContactData, setContactData] = useState([]);
 
+  const [SearchText, setSearchText] = useState('');
+
   function handelDelete(itemIndex) {
     setContactData({
       tabelUsers: ContactData.filter((item, index) => index !== itemIndex)
@@ -90,6 +92,19 @@ function App() {
     })
   }
 
+  function searchAlgorithm(objArr = {}, searchText = "") {
+    if (searchText.trim()) {
+      for (let item in objArr) {
+        if (~objArr[item].search(searchText)) {
+          return true;
+        }
+      }
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   return (
     <Container fluid>
       <Row id="main-row">
@@ -102,8 +117,10 @@ function App() {
           <ContactContainer
             handelAdd={handelAdd}
             handelDelete={handelDelete}
+            handelFilter={setSearchText}
             HeaderData={ContactHeader}
-            ContactData={ContactData} />
+            ContactData={ContactData.filter((element) => searchAlgorithm(element, SearchText)
+            )} />
         </Col>
       </Row>
     </Container>
