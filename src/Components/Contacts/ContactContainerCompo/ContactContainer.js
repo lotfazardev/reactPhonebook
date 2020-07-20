@@ -19,7 +19,7 @@ function ContactContainer(props) {
             <Col className="no-padding col-12 mt-3">
                 <ContactTabel
                     header={props.HeaderData}
-                    users={props.ContactData.tabelUsers}
+                    users={props.ContactData}
                     handelDelete={props.handelDelete}
                 />
             </Col>

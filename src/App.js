@@ -15,15 +15,15 @@ function App() {
     note: "یادداشت ها",
     accessibility: "دسترسی ها"
   });
-  const [ContactData, setContactData] = useState({
-    tabelUsers: []
-  });
+
+  const [ContactData, setContactData] = useState([]);
+
   function handelDelete(itemIndex) {
     setContactData({
-      tabelHeader: ContactData.tabelHeader,
-      tabelUsers: ContactData.tabelUsers.filter((item, index) => index !== itemIndex)
+      tabelUsers: ContactData.filter((item, index) => index !== itemIndex)
     });
   }
+
   function handelAdd() {
     Swal.mixin({
       input: 'text',
@@ -70,17 +70,14 @@ function App() {
       },
     ]).then((result) => {
       if (result.value) {
-        setContactData({
-          tabelHeader: ContactData.tabelHeader,
-          tabelUsers: [
-            ...ContactData.tabelUsers, {
-              name: result.value[0],
-              family: result.value[1],
-              tel: result.value[2],
-              note: result.value[3]
-            }
-          ]
-        });
+        setContactData([
+          ...ContactData, {
+            name: result.value[0],
+            family: result.value[1],
+            tel: result.value[2],
+            note: result.value[3]
+          }
+        ]);
         Swal.fire({
           title: 'عملیات موفق',
           icon: 'success',
