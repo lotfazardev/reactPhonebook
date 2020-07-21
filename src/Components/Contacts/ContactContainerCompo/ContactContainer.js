@@ -23,6 +23,7 @@ function ContactContainer(props) {
                     header={props.HeaderData}
                     users={props.ContactData}
                     handelDelete={props.handelDelete}
+                    handelEdit={props.handelEdit}
                 />
             </Col>
         </>

@@ -28,7 +28,9 @@ function ContactTabel(props) {
                                 <td className="d-flex justify-content-center align-items-center">
                                     <ContactItemButton itemButtonColor="#F8AE45"
                                         itemButtonLabel="ویرایش"
-                                        itemButton="icon-pen" />
+                                        itemButton="icon-pen" 
+                                        handelClick={()=>props.handelEdit(index)}    
+                                        />
                                     <ContactItemButton itemButtonColor="#FF4141"
                                         itemButtonLabel="حذف"
                                         itemButton="icon-user-minus" 

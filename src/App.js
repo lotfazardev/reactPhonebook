@@ -21,7 +21,7 @@ function App() {
   const [SearchText, setSearchText] = useState('');
 
   function handelDelete(itemIndex) {
-    setContactData( ContactData.filter((item, index) => index !== itemIndex));
+    setContactData(ContactData.filter((item, index) => index !== itemIndex));
   }
 
   function handelAdd() {
@@ -90,6 +90,58 @@ function App() {
     })
   }
 
+  function handelEdit(indexArg) {
+    Swal.mixin({
+      input: 'text',
+      confirmButtonText: 'بعدی &rarr;',
+      showCancelButton: true,
+      cancelButtonText: 'انصراف',
+      progressSteps: ['۱', '۲', '۳', '۴']
+    }).queue([
+      {
+        title: 'نام',
+        text: 'نام مخاطب خود را ویرایش کنید !',
+        inputPlaceholder: ContactData[indexArg].name
+      },
+      {
+        title: 'نام خانوادگی',
+        text: 'نام مخاطب خود را ویرایش کنید !',
+        inputPlaceholder: ContactData[indexArg].family
+      },
+      {
+        input: 'number',
+        title: 'شماره تلفن',
+        text: 'شماره تلفن مخاطب خود را ویرایش کنید !',
+        inputPlaceholder: ContactData[indexArg].tel
+      },
+      {
+        title: 'یادداشت',
+        text: 'یادداشت خود را ویرایش کنید !',
+        inputPlaceholder: ContactData[indexArg].note
+      },
+    ]).then((result) => {
+      if (result.value) {
+        console.log(indexArg)
+        const tmp = {
+          name: result.value[0] || ContactData[indexArg].name,
+          family: result.value[1] || ContactData[indexArg].family,
+          tel: result.value[2] || ContactData[indexArg].tel,
+          note: result.value[3] || ContactData[indexArg].note
+        };
+        let ans = ContactData.map((item, index) => index === indexArg ? tmp : item)
+        setContactData(ans)
+        Swal.fire({
+          title: 'عملیات موفق',
+          icon: 'success',
+          html: `
+            مخاطب مورد نظر با بروزرسانی شد !
+          `,
+          confirmButtonText: 'حله !'
+        })
+      }
+    })
+  }
+
   function searchAlgorithm(objArr = {}, searchText = "") {
     if (searchText.trim()) {
       for (let item in objArr) {
@@ -115,6 +167,7 @@ function App() {
           <ContactContainer
             handelAdd={handelAdd}
             handelDelete={handelDelete}
+            handelEdit={handelEdit}
             handelFilter={setSearchText}
             HeaderData={ContactHeader}
             ContactData={SearchText.length ? ContactData.filter((element) => searchAlgorithm(element, SearchText)) : ContactData} />
