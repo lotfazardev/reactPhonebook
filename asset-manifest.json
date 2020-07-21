@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/reactPhonebook/static/css/main.12d2b85b.chunk.css",
+    "main.js": "/reactPhonebook/static/js/main.e1f67e91.chunk.js",
+    "main.js.map": "/reactPhonebook/static/js/main.e1f67e91.chunk.js.map",
+    "runtime-main.js": "/reactPhonebook/static/js/runtime-main.d7d27da9.js",
+    "runtime-main.js.map": "/reactPhonebook/static/js/runtime-main.d7d27da9.js.map",
+    "static/js/2.0837a62b.chunk.js": "/reactPhonebook/static/js/2.0837a62b.chunk.js",
+    "static/js/2.0837a62b.chunk.js.map": "/reactPhonebook/static/js/2.0837a62b.chunk.js.map",
+    "index.html": "/reactPhonebook/index.html",
+    "precache-manifest.1450e95c47aa555ecf8af47310c2f54b.js": "/reactPhonebook/precache-manifest.1450e95c47aa555ecf8af47310c2f54b.js",
+    "service-worker.js": "/reactPhonebook/service-worker.js",
+    "static/css/main.12d2b85b.chunk.css.map": "/reactPhonebook/static/css/main.12d2b85b.chunk.css.map",
+    "static/js/2.0837a62b.chunk.js.LICENSE.txt": "/reactPhonebook/static/js/2.0837a62b.chunk.js.LICENSE.txt",
+    "static/media/App.scss": "/reactPhonebook/static/media/icomoon.c3da3021.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d7d27da9.js",
+    "static/js/2.0837a62b.chunk.js",
+    "static/css/main.12d2b85b.chunk.css",
+    "static/js/main.e1f67e91.chunk.js"
+  ]
+}
